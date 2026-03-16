@@ -1,0 +1,336 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+a {
+  color: #38bdf8;
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.header-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.controls-card,
+.schedule-card {
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.24), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(96, 165, 250, 0.12), transparent 55%),
+    rgba(15, 23, 42, 0.92);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.65);
+}
+
+.controls-card {
+  padding: 16px 16px 18px;
+  align-self: flex-start;
+}
+
+.schedule-card {
+  padding: 18px 18px 12px;
+  min-height: 340px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+
+.segmented {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.segmented-btn {
+  border: none;
+  background: none;
+  color: #e5e7eb;
+  font-size: 0.86rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.segmented-btn.active {
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #0b1120;
+}
+
+.segmented-btn:not(.active):hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.day-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.day-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  min-width: 44px;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.1s ease;
+}
+
+.day-btn.active {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  color: #022c22;
+  border-color: transparent;
+}
+
+.day-btn:hover {
+  transform: translateY(-1px);
+}
+
+.hint {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.schedule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.schedule-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.muted {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.lesson {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.lesson-time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.pair-number {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.time-range {
+  font-variant-numeric: tabular-nums;
+}
+
+.lesson-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lesson-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.lesson-name {
+  margin: 0;
+  font-size: 0.97rem;
+}
+
+.lesson-format {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #9ca3af;
+}
+
+.lesson-meta,
+.lesson-place,
+.lesson-comment {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+.lesson-place {
+  color: #c4b5fd;
+}
+
+.lesson-comment {
+  color: #a5b4fc;
+}
+
+.link-btn {
+  border: none;
+  background: none;
+  color: #93c5fd;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.empty-state {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.meetup-info {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: radial-gradient(circle at top left, rgba(52, 211, 153, 0.2), transparent 60%),
+    rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(52, 211, 153, 0.8);
+  font-size: 0.9rem;
+  color: #bbf7d0;
+}
+
+.meetup-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  color: #6ee7b7;
+}
+
+.meetup-line {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.app-footer {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-meta {
+    align-items: flex-start;
+  }
+
+  .lesson {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+

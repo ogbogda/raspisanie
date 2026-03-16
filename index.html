@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Расписание ГУАП — группа 3513</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div>
+          <h1>Расписание 3513 + КО‑3333</h1>
+          <p class="subtitle">
+            ГУАП 3513 и СПХФУ КО‑3333 · весенний семестр
+          </p>
+        </div>
+        <div class="header-meta">
+          <span id="current-date"></span>
+          <span class="badge" id="week-type-badge">—</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="controls-card">
+          <div class="field">
+            <label>Группа</label>
+            <div class="segmented" id="group-switch">
+              <button
+                class="segmented-btn active"
+                data-group="guap"
+              >
+                ГУАП 3513
+              </button>
+              <button
+                class="segmented-btn"
+                data-group="college"
+              >
+                СПХФУ КО‑3333
+              </button>
+            </div>
+          </div>
+
+          <div class="field" id="week-field">
+            <label for="week-select">Неделя</label>
+            <div class="segmented">
+              <button class="segmented-btn active" data-week="auto">
+                Текущая
+              </button>
+              <button class="segmented-btn" data-week="odd">Нечётная</button>
+              <button class="segmented-btn" data-week="even">Чётная</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="day-select">День недели</label>
+            <div class="day-buttons" id="day-buttons">
+              <button data-day="1" class="day-btn active">Пн</button>
+              <button data-day="2" class="day-btn">Вт</button>
+              <button data-day="3" class="day-btn">Ср</button>
+              <button data-day="4" class="day-btn">Чт</button>
+              <button data-day="5" class="day-btn">Пт</button>
+              <button data-day="6" class="day-btn">Сб</button>
+            </div>
+          </div>
+
+          <div class="hint">
+            Данные расписания можно периодически обновлять вручную с сайта
+            <a href="https://guap.ru/rasp" target="_blank" rel="noreferrer"
+              >ГУАП</a
+            >
+            и из таблицы колледжа СПХФУ.
+          </div>
+        </section>
+
+        <section class="schedule-card">
+          <header class="schedule-header">
+            <div>
+              <h2 id="day-title">Понедельник</h2>
+              <p class="muted" id="week-label">
+                Нечётная/чётная неделя · ГУАП 3513
+              </p>
+            </div>
+            <button id="today-btn" class="link-btn">Сегодня</button>
+          </header>
+
+          <div id="lessons-container" class="lessons-list">
+            <!-- Записи пар рендерятся через JS -->
+          </div>
+
+          <template id="lesson-template">
+            <article class="lesson">
+              <div class="lesson-time">
+                <span class="pair-number"></span>
+                <span class="time-range"></span>
+              </div>
+              <div class="lesson-main">
+                <div class="lesson-title-row">
+                  <h3 class="lesson-name"></h3>
+                  <span class="lesson-format"></span>
+                </div>
+                <p class="lesson-meta">
+                  <span class="lesson-type"></span>
+                  ·
+                  <span class="lesson-teacher"></span>
+                </p>
+                <p class="lesson-place">
+                  <span class="lesson-building"></span>
+                  ·
+                  <span class="lesson-room"></span>
+                </p>
+                <p class="lesson-comment"></p>
+              </div>
+            </article>
+          </template>
+
+          <div id="empty-state" class="empty-state hidden">
+            <p>На выбранный день занятий нет.</p>
+          </div>
+
+          <div id="meetup-info" class="meetup-info hidden">
+            <div class="meetup-title">Когда вы оба свободны после пар</div>
+            <p class="meetup-line" id="meetup-text"></p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>ФГАОУ ВО «ГУАП» / СПХФУ</span>
+        <span>3513 + КО‑3333 (неофициальный сервис)</span>
+      </footer>
+    </div>
+
+    <script src="./schedule.js"></script>
+    <script src="./main.js"></script>
+  </body>
+  </html>
+
